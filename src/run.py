@@ -29,7 +29,7 @@ if __name__ == '__main__':
             continue
         dv_dao = DailyVolDAO(db_path)
         ljdao = LianjiaDAO(cur_datetime, db_path)
-        if 0 <= cur_datetime.hour < 5:
+        if 0 <= cur_datetime.hour < 5 or update_hour == 0:
             vol_data = VolDataGenerator(dv_dao)
             price_tool = LijiaPriceTrendsGenerator(ljdao)
             img_tool = VolImgProducer(vol_data, price_tool, "/app/www/img/")
