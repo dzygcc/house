@@ -12,8 +12,8 @@ def download(url, count=1, charset="gb18030"):
         html = ''.join(response)
         html = html.decode(charset).encode("utf-8")
         return html
-    except Exception, e:
-        print count, url, e
+    except Exception:
+        print(count + url)
         if count < 5:
             time.sleep(3)
             return download(url, count + 1)
@@ -30,8 +30,8 @@ def get_binary_file(url, f):
         img_file = open(f, 'wb')
         img_file.write(response.read())
         img_file.close()
-    except Exception, e:
-        print url, e
+    except Exception:
+        print(url)
         img_file.close()
 
 
@@ -41,6 +41,6 @@ def get_json(url):
         req.add_header('User-Agent', 'Mozilla/5.0')
         response = urllib2.urlopen(req)
         return json.loads(response.read())
-    except Exception, e:
-        print url, e
+    except Exception:
+        print(url)
         return None

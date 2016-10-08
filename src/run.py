@@ -27,7 +27,6 @@ if __name__ == '__main__':
         if abs(cur_datetime.hour - update_hour) < 5:
             time.sleep(30 * 60)
             continue
-        update_hour = cur_datetime.hour
         dv_dao = DailyVolDAO(db_path)
         ljdao = LianjiaDAO(cur_datetime, db_path)
         if 0 <= cur_datetime.hour < 5:
@@ -35,6 +34,7 @@ if __name__ == '__main__':
             price_tool = LijiaPriceTrendsGenerator(ljdao)
             img_tool = VolImgProducer(vol_data, price_tool, "/app/www/img/")
             img_tool.run()
+        update_hour = cur_datetime.hour
         shanghai = ShanghaiVol(dv_dao)
         shanghai.run()
         hz_vol = HangZhouVol(dv_dao)

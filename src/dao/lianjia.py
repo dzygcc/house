@@ -10,7 +10,7 @@ class LianjiaDAO:
         self.db_path = db_path
         self.conn = sqlite3.connect(self.db_path)
         if self.conn is None:
-            print "connect sqlite3 path: %s failed" % self.db_path
+            print("connect sqlite3 path: %s failed" % self.db_path)
             exit(-1)
 
     def close(self):

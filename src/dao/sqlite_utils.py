@@ -135,7 +135,6 @@ class Sqlite3Utils():
     def has_sell_info(self, name):
         sql = "select id from project_sell_info where name = %s and date=%s" % (
             name, self.curr_date)
-        print sql
         cursor = self.conn.cursor()
         cursor.execute(sql)
         id_res = cursor.fetchall()
