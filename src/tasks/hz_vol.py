@@ -24,8 +24,8 @@ class HangZhouVol:
                 prev_url = self.get_month_vol(None, prev_url)
                 time.sleep(6)
             logger.info("end hangzhou vol crawler.")
-        except Exception, e:
-            logger.error(e)
+        except:
+            logger.error("error")
 
     def get_month_vol(self, dt, url):
         if not url:

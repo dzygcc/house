@@ -245,8 +245,8 @@ class VolImgProducer:
             self.draw_vol_monthly()
             self.draw_price_trends()
             logger.info("end draw img.")
-        except Exception, e:
-            logger.error("error", e)
+        except:
+            logger.error("error.")
 
 
 if __name__ == "__main__":
